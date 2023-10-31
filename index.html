@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI calculator</title>
+    <!-- favicon link -->
+    <link rel="icon" href="https://play-lh.googleusercontent.com/PmOnpf2uN_o-0Uoff75f4nppoNNRW3IX7HFEmnRsuSzCWeD3L0iixBtJ9lIAaCWcGA">
+    <!-- bs-icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- bootstap_Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- script linked -->
+    <script src="script.js"></script>
+    <style>
+        @media screen and (min-width:992px) {
+            body{
+                align-items: center;
+            }
+            
+        }
+        @media screen and(max-width:992px) {
+            #card{
+                width: 100%;
+                margin: 0px;
+            }
+        }
+        body{
+            height: 100vh;
+            
+        }
+         input::placeholder{
+            text-align: end;
+        }
+        #heading{
+            background-image: linear-gradient(to bottom, grey 0%,black 50%);
+        }
+        #cardBody{
+            background-image: linear-gradient(to bottom,lightgrey 30% ,grey 70%,black 95%) ;
+        }
+        #progress{
+            background-image:linear-gradient(to right,blue 0%,green 20%,orange 60%, red 80%);
+            position: relative;
+            height: 15px;
+            
+        }
+        #scaleIndicator{
+            height: 15px;
+            width:15px;
+            border-radius: 50%;
+            background-image: radial-gradient(circle,white 30%,black 90%);
+            position: absolute;
+        }
+        
+    </style>
+</head>
+<body class="d-flex justify-content-center">
+        <div class="card rounded h-75" id="card">
+        <div class="card-header text-center  fw-bold bg-dark text-light" id="heading">
+            BMI calculator
+        </div>
+        <!-- card body -->
+        <div class="card-body  fw-bold p-5 bg-secondary" id="cardBody">
+            <div class="inputArea ">
+                <!-- Gender section -->
+                <div class="genderArea">
+                    <input type="radio" class="form-check-input" name="gender" id="maleOpt">
+                    <label class="form-check-label" for="#male">Male</label>
+                    <input type="radio" class="form-check-input" name="gender" id="femaleOpt">
+                    <label class="form-check-label" for="#female">Female</label>
+                </div>
+                <!-- height section -->
+                <div class="heightArea my-3">
+                    <label for="heightBox">
+                        Height : 
+                    </label>
+                    <input type="number" class="w-50 rounded" placeholder="feet" name="heightBox" id="feet" >
+                    <input type="number" class="w-25 rounded"  placeholder="inch" name="heightBox" id="inch" >
+                </div>
+                <!-- weightSection -->
+                <div class="weightSection">
+                    <label for="weightInput">Weight : </label>
+                    <input type="number" id="weight" class="rounded w-75" name="weightInput" placeholder="in KGs">
+                </div>
+                <button class="btn btn-dark text-warning w-100 mt-5" onclick="printOutput()">Calculate</button>
+            </div>
+            <!-- outputArea -->
+            <div class="outputArea p-1 rounded border bg-secondary-subtle p-4  my-3">
+                <h3 class="text-center">Scale</h3>
+                <div id="progress">
+                    <div id="scaleIndicator"></div>
+                </div>
+                <div class="titleArea mt-5 row">
+                   <div class="col">
+                    <h1>BMI</h1>
+                    <div class="fs-3">Index : </div>
+                   </div>
+                   <div class="col text-success fw-bold fs-1 p-2 bg-dark text-center rounded" >
+                    <p id="indexValue">00.0</p>
+                   </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class=" fs-6"><span class="bi-circle-fill text-primary"></span> Underweight</div>
+                    <div class=" fs-6"><span class="bi-circle-fill text-success"></span> Normal</div>
+                    </div>
+                    <div class="col"><div class=" fs-6"><span class="bi-circle-fill text-warning"></span> Overweight</div>
+                    <div class=" fs-6"><span class="bi-circle-fill text-danger"></span> Obese</div></div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</body>
+</html>
